@@ -146,8 +146,8 @@ fold(Fun, Acc) ->
 %%  the term.
 
 call(none, State) -> State;
-call({call,Dl,_}, State) ->
-    %%    erlang:display({call, element(2, _Vbo)}),
+call({call,Dl,_Vbo}, State) ->
+    erlang:display({call, element(2, _Vbo)}),
     call(Dl, State);
 call({call_in_this_win,Win,Dl}, State) ->
     case wings_wm:this() of
@@ -329,5 +329,5 @@ update_seen_1(_, Seen) -> Seen.
 
 
 delete_buffers(NotUsed, _From) ->
-    %% erlang:display({delete,{?MODULE, _From}, NotUsed}),
+    erlang:display({delete,{?MODULE, _From}, NotUsed}),
     gl:deleteBuffers(NotUsed).
