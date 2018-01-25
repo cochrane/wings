@@ -3,8 +3,8 @@ language: erlang
 otp_release:
   - 20.2
 
-dist: xenial
-sudo: false
+dist: trusty
+sudo: required
 
 #notifications:
 #  email: false
