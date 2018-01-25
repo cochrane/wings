@@ -12,13 +12,13 @@ sudo: required
 addons:
   apt:
     packages:
-    - git
-    - opencl-headers
     - fglrx
+    - opencl-headers
+
 
 before_install:
-  - sudo apt-get update -qq &&
-  - sudo apt-get install opencl-headers
+  - sudo apt-get update -qq
+#  - sudo apt-get install opencl-headers
 
 before_script:
   - set -e
