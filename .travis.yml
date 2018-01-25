@@ -27,7 +27,7 @@ before_script:
 #  and thus cl can not be built but we need it below
 #
 script:
-  - (cd cl/src && erlc -o../ebin *erl && cp cl.app.src ../ebin/cl.app)
+  - (cd cl/src && erlc +debug_info -o../ebin *erl && cp cl.app.src ../ebin/cl.app)
   - (mkdir cl/priv && touch cl/priv/cl.so )
   - make
 
