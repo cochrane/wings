@@ -25,7 +25,7 @@ new(Draw, Data0, Layout) when is_list(Data0) ->
     new(Draw, Data, Layout);
 new(Draw, Data, Layout) when is_binary(Data) ->
     [Vbo] = gl:genBuffers(1),
-    erlang:display({new, Vbo, Draw}),
+    %% erlang:display({new, Vbo, Draw}),
     gl:bindBuffer(?GL_ARRAY_BUFFER, Vbo),
     gl:bufferData(?GL_ARRAY_BUFFER, byte_size(Data), Data, ?GL_STATIC_DRAW),
     gl:bindBuffer(?GL_ARRAY_BUFFER, 0),
@@ -48,10 +48,10 @@ draw(Draw0, Data, Layout) ->
     ok.
 
 delete({vbo, Vbo}) ->
-    erlang:display({delete, {?MODULE,?LINE}, Vbo}),
+    %%erlang:display({delete, {?MODULE,?LINE}, Vbo}),
     gl:deleteBuffers([Vbo]);
 delete({call,_D,{vbo,Vbo}}) ->
-    erlang:display({delete, {?MODULE,?LINE}, Vbo}),
+    %%erlang:display({delete, {?MODULE,?LINE}, Vbo}),
     gl:deleteBuffers([Vbo]).
 
 parse_layout([vertex], Vbo, Draw) ->
